@@ -57,9 +57,12 @@ public class SpeechRecognizer {
 //		String acousticModelPath = ClassLoader.getSystemResource("an4/an4.cd_cont_200").getPath();
 //		String dictionaryPath = ClassLoader.getSystemResource("an4/an4.dic").getPath();
 //		String languageModelPath = ClassLoader.getSystemResource("an4/an4.dmp").getPath();
-		String acousticModelPath = ClassLoader.getSystemResource("digitmodel/digit.cd_cont_200").getPath();
-		String dictionaryPath = ClassLoader.getSystemResource("digitmodel/digit.dic").getPath();
-		String languageModelPath = ClassLoader.getSystemResource("digitmodel/digit.lm.bin").getPath();
+//		String acousticModelPath = ClassLoader.getSystemResource("digitmodel/digit.cd_cont_200").getPath();
+//		String dictionaryPath = ClassLoader.getSystemResource("digitmodel/digit.dic").getPath();
+//		String languageModelPath = ClassLoader.getSystemResource("digitmodel/digit.lm.bin").getPath();
+		String acousticModelPath = ClassLoader.getSystemResource("an4/an4.cd_cont_200").getPath();
+		String dictionaryPath = ClassLoader.getSystemResource("an4/an4.dic").getPath();
+		String languageModelPath = ClassLoader.getSystemResource("an4/an4.dmp").getPath();
 		cm.setAcousticModelPath(acousticModelPath);
 		cm.setDictionaryPath(dictionaryPath);
 		cm.setLanguageModelPath(languageModelPath);

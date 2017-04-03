@@ -9,6 +9,8 @@ import java.util.HashMap;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 
+import edu.cmu.sphinx.result.Result;
+
 public class Translator {
 	private int mosesport = 8080;
 	private String host = "172.16.75.74";
@@ -58,17 +60,21 @@ public class Translator {
 		private String textToTranslate;
 		
 		public TranslatorThread(String textToTranslate) {
+			
 			// TODO Auto-generated constructor stub
 			super();
+			this.textToTranslate = textToTranslate;
 		}
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			super.run();
 			try {
-				URL url = new URL("http",Translator.this.host,Translator.this.mosesport,"RPC2");
+				URL url = new URL("http",Translator.this.host,Translator.this.mosesport,"/RPC2");
 				System.out.println(url.toString());
 				XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+				config.setEncoding(null);
+				config.setBasicEncoding(null);
 				config.setServerURL(url);
 				XmlRpcClient client = new XmlRpcClient();
 				client.setConfig(config);
@@ -79,7 +85,9 @@ public class Translator {
 				mosesParams.put("report-all-factors", "true");
 				// The XmlRpcClient.execute method doesn't x Hashmap (pParams). It's either Object[] or List. 
 				Object[] params = new Object[] { null };
+				//Object[] params = new Object[1];
 				params[0] = mosesParams;
+				
 				// Invoke the remote method "translate". The result is an Object, convert it to a HashMap.
 				HashMap result = (HashMap)client.execute("translate", params);
 	                        // Print the returned results

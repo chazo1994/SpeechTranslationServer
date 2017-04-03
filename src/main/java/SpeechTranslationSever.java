@@ -23,6 +23,7 @@ public class SpeechTranslationSever {
 			    }
 			}
 			Controller c = new Controller();
+			c.setMosesPort(8096);
 			c.connection();
 			
 			

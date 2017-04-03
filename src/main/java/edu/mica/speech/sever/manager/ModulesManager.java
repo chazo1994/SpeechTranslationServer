@@ -31,7 +31,8 @@ public class ModulesManager {
 		String result = null;
 		speechRecognizer.setAllFeatures(allFeatures);
 		result = speechRecognizer.recognize(true);
-		//result = translator.translate(new String(result));
+		//result = translator.translate(new String("what is your name ?"));
+		result = translator.translate(result);
 		return result;
 	}
 
